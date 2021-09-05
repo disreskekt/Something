@@ -5,8 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Something.Business.Services;
-using Something.Business.Services.Interfaces;
 using Something.DAL;
 using System;
 using System.Collections.Generic;
