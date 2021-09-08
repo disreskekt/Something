@@ -5,18 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Something.DAL.Configuration;
 using Something.Domain;
+using Something.Domain.Models;
 
 namespace Something.DAL
 {
     public class Context : DbContext
     {
-        //public IConfiguration _configuration { get; }
-        //public Context(IConfiguration configuration)
-        //{
-        //    _configuration = configuration;
-        //}
-
+        public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<User> Users { get; set; }
 
         public Context(DbContextOptions<Context> options)
@@ -25,9 +22,12 @@ namespace Something.DAL
             Database.EnsureCreated();
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseNpgsql(_configuration.GetConnectionString("FirstDatabase"));
-        //}
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.UserRolesInit();
+            builder.DefaultUsersInit();
+        }
+
+
     }
 }

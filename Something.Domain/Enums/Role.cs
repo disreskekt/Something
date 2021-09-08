@@ -8,9 +8,9 @@ namespace Something.Domain
 {
     public enum Role
     {
-        Usual,
-        Vip,
-        Manager,
-        Admin
+        General = 1,
+        Vip = 2,
+        StorageManager = 3,
+        Admin = 4
     }
 }

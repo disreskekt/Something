@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Something.API.Extensions;
 using Something.DAL;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ namespace Something
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<Context>(options => options.UseNpgsql(_configuration.GetConnectionString("FirstDatabase")));
+            services.AddDal(_configuration);
+            services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -38,6 +40,9 @@ namespace Something
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action=Index}/{id?}");
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
