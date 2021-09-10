@@ -15,10 +15,10 @@ namespace Something.DAL.Configuration
         {
             var defaultUsers = new User[]
             {
-                new User { Id = (int)Role.General, Name = Role.General.ToString(), UserRoleId = Role.General},
-                new User { Id = (int)Role.Vip, Name = Role.Vip.ToString(), UserRoleId = Role.Vip},
-                new User { Id = (int)Role.StorageManager, Name = Role.StorageManager.ToString(), UserRoleId = Role.StorageManager},
-                new User { Id = (int)Role.Admin, Name = Role.Admin.ToString(), UserRoleId = Role.Admin},
+                new User { Id = 1, Name = Role.General.ToString(), UserRoleId = Role.General},
+                new User { Id = 2, Name = Role.Vip.ToString(), UserRoleId = Role.Vip},
+                new User { Id = 3, Name = Role.StorageManager.ToString(), UserRoleId = Role.StorageManager},
+                new User { Id = 4, Name = Role.Admin.ToString(), UserRoleId = Role.Admin},
             };
 
             modelBuilder.Entity<User>().HasData(defaultUsers);

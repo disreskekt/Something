@@ -27,7 +27,5 @@ namespace Something.DAL
             builder.UserRolesInit();
             builder.DefaultUsersInit();
         }
-
-
     }
 }
