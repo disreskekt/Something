@@ -25,7 +25,7 @@ namespace Something.DAL
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.UserRolesInit();
-            builder.DefaultUsersInit();
+            builder.UsersInit();
         }
     }
 }
